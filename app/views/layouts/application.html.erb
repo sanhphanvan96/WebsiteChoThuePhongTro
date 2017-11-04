@@ -22,6 +22,7 @@
   </head>
   <body>
     <%= render "layouts/header" %>
+    <%= render "layouts/top_navigation" %>
     <div>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
