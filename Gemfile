@@ -6,10 +6,12 @@ git_source(:github) do |repo_name|
 end
 
 gem "bcrypt", "~> 3.1.7"
+gem "bootstrap-sass", "3.3.7"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "faker", "1.6.6"
+gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "mysql2"
