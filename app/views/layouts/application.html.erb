@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WebsiteChoThuePhongTro</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <link rel="stylesheet" href="http://phongtot.vn/themes/client/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="http://phongtot.vn/themes/client/css/fonts.css"> -->
+    <!-- <link rel="stylesheet" href="http://phongtot.vn/themes/client/css/component.css"> -->
+    <!-- <link rel="stylesheet" href="http://phongtot.vn/themes/client/css/app.css"> -->
+    <!-- <link rel="stylesheet" href="http://phongtot.vn/themes/client/css/jquery-gmaps-latlon-picker.css"> -->
+    <script src="http://phongtot.vn/themes/client/js/jquery-1.11.3.min.js"></script>
+    <script src="http://phongtot.vn/themes/client/js/bootstrap.min.js"></script>
+    <!-- <script src="http://phongtot.vn/themes/client/js/multiple-select.js"></script> -->
+    <!-- <script src="http://phongtot.vn/themes/client/js/owl.carousel.min.js"></script> -->
+    <!-- <script src="http://phongtot.vn/themes/client/js/ion.rangeSlider.js"></script> -->
+    <!-- <script src="http://phongtot.vn/themes/client/js/jquery.maskMoney.js"></script> -->
 
+    <%= render "layouts/shim" %>
+  </head>
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+    <div>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+      <%= yield %>
+    <div class="col-sm-12 col-md-12">
+      <br>
+      <%= render "layouts/footer" %>
+    </div>
   </body>
+  <%= stylesheet_link_tag "font-awesome.min" %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
 </html>
