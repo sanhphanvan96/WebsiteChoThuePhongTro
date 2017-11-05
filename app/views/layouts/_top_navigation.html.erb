@@ -11,14 +11,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://phongtot.vn"><span class="fa fa-home"></span></a>
+            <%= link_to(root_path, class: "navbar-brand") do %>
+              <span class="fa fa-home"></span>
+            <% end %>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="http://phongtot.vn/phong-tro-nha-tro">Phòng trọ</a></li>
-              <li><a href="http://phongtot.vn/nha-nguyen-can">Nhà nguyên căn</a></li>
+              <li><a href="#">Phòng trọ</a></li>
+              <li><a href="#">Nhà nguyên căn</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
