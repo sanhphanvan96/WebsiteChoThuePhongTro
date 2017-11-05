@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105095803) do
+ActiveRecord::Schema.define(version: 20171105110139) do
 
   create_table "post_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20171105095803) do
     t.bigint "toilet_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["post_category_id"], name: "index_posts_on_post_category_id"
     t.index ["toilet_type_id"], name: "index_posts_on_toilet_type_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "toilet_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,4 +68,5 @@ ActiveRecord::Schema.define(version: 20171105095803) do
 
   add_foreign_key "posts", "post_categories"
   add_foreign_key "posts", "toilet_types"
+  add_foreign_key "posts", "users"
 end
