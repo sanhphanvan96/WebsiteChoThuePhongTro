@@ -11,7 +11,7 @@
           </div>
           <div class="header-top-user">
             <% if user_signed_in? %>
-              <div class="user-name"><a href="#">Phan Van Sanh</a></div>
+              <div class="user-name"><a href="#"><%= current_user.name %></a></div>
               <div class="dropdown user-info">
                 <a href="javascript: void(0);" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài khoản <b class="caret"></b></a>
                 <ul class="dropdown-menu dropdown-menu-right menu-user-info" aria-labelledby="dropdownMenu1">

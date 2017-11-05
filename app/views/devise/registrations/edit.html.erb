@@ -1,43 +1,118 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="row">
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12 room-main-content">
+        <div class="pt-breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="http://phongtot.vn">Trang chủ</a></li>
+            <li class="active">Trang cá nhân</li>
+          </ol>
+        </div><div class="user_panel col-md-2 no-padding-vertical">
+        <div class="user-avatar">
+          <a href="#"><img class="img-responsive" src="http://media.phongtot.vn/xc5tx4cj/glass.jpg"></a>
+        </div>
+        <div class="user-panel-menu">
+          <div class="user-panel-menu-item active"><a href="#">Tổng quan</a></div>
+          <div class="user-panel-menu-item "><a href="#">Tin đã đăng</a></div>
+        </div></div>
+        <!-- End left menu -->
+        <div class="user_panel col-md-10 user-panel-center-container">
+          <div class="user-panel-info">
+            <div class="user-panel-name"><a href="#"><%= current_user.name %></a></div>
+            <div class="user-panel-email"><a href="#"><%= current_user.email %></a></div>
+            <a class="btn btn-submit-room" href="#">Đăng tin miễn phí</a>
+          </div><div class="user-panel-main-container">
+          <!-- Nav tabs -->
+          <div class="card">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Thông tin cá nhân</a></li>
+              <li role="presentation" class=""><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Đổi mật khẩu</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="home">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "user-panel-main-container-info" }) do |f| %>
+                <%= devise_error_messages! %>
+                <!-- <form class="user-panel-main-container-info" method="POST" action="#" enctype="multipart/form-data"> -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: "form-control" %>
+                        <!-- <label for="hoten">Họ tên</label> -->
+                        <!-- <input type="text" class="form-control" name="fullname" value="<script>alert(1)</script>" placeholder="Họ tên"> -->
+                        <span class="help-block" style="color:red;"></span>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :email %>
+                        <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+                        <!-- <label for="ngaysinh">Email</label> -->
+                        <!-- <input type="text" class="form-control" name="birth" value="" placeholder="Email"> -->
+                        <span class="help-block" style="color:red;"></span>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :current_password %>
+                        <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
+                        <!-- <label>Điện thoại liên hệ</label> -->
+                        <!-- <input type="text" class="form-control" name="phone" value="" placeholder="Phone"> -->
+                        <span class="help-block" style="color:red;"></span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :address %>
+                        <%= f.text_field :address, class: "form-control", placeholder: "Địa chỉ" %>
+                        <!-- <label>Địa chỉ</label> -->
+                        <!-- <input type="text" class="form-control" name="address" value="" placeholder="Địa chỉ"> -->
+                        <span class="help-block" style="color:red;"></span>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label :phone %>
+                        <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
+                        <!-- <label>Điện thoại liên hệ</label> -->
+                        <!-- <input type="text" class="form-control" name="phone" value="" placeholder="Phone"> -->
+                        <span class="help-block" style="color:red;"></span>
+                      </div> 
+                      <div class="form-group">
+                        <br>
+                        <%= f.label :note %>
+                        <i>(we need your current password to confirm your changes)</i>
+                        <span class="help-block" style="color:red;"></span>
+                      </div>                     
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <%= f.submit "Update", class: "btn center-block" %>
+                    <!-- <button type="submit" class="btn center-block">Submit</button> -->
+                  </div>
+                <% end %>
+              </div>
+              <div role="tabpanel" class="tab-pane " id="profile">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "user-panel-main-container-info" }) do |f| %>
+                <%= devise_error_messages! %>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Mật khẩu cũ</label>
+                    <%= f.password_field :current_password, class: "form-control", placeholder: "Mật khẩu cũ", autocomplete: "off" %>
+                    <span class="help-block" style="color:red;"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Mật khẩu mới</label>
+                    <%= f.password_field :password, class: "form-control", placeholder: "Mật khẩu mới", autocomplete: "off" %>
+                    <span class="help-block" style="color:red;"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
+                    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Nhập lại mật khẩu", autocomplete: "off" %>
+                    <span class="help-block" style="color:red;"></span>
+                  </div>
+                  <button type="submit" class="btn">Submit</button>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
+</div>
