@@ -4,7 +4,7 @@
       <div class="col-md-12 room-main-content">
         <div class="pt-breadcrumb">
           <ol class="breadcrumb">
-            <li><a href="http://phongtot.vn">Trang chủ</a></li>
+            <li><a href="#">Trang chủ</a></li>
           </ol>
         </div><div class="col-md-12 no-padding-vertical login-page-label">
         <div class="room-list-category">
@@ -16,41 +16,47 @@
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2 login-page">
-        <form class="form-horizontal" method="POST" action="http://phongtot.vn/dang-ky">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal") do |f| %>
+        <%= devise_error_messages! %>
           <div class="form-group">
-            <label for="txt_fullname" class="col-sm-4 control-label">Tên hiển thị</label>
+          </div>
+          <div class="form-group">
+            <%= f.label :name, class: "col-sm-4 control-label" %>
             <div class="col-sm-8 col-md-8">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Tên hiển thị ..." value="">
+              <%= f.text_field :name, class: "form-control", placeholder: "Tên hiển thị ..." %>
               <span class="help-block"></span>
             </div>
           </div>
           <div class="form-group">
-            <label for="txt_email" class="col-sm-4 control-label">Email</label>
+            <%= f.label :email, class: "col-sm-4 control-label" %>
             <div class="col-sm-8 col-md-8">
-              <input type="email" name="email" class="form-control" id="email" placeholder="Email ..." value="">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email ..." %>
               <span class="help-block"></span>
             </div>
           </div>
           <div class="form-group">
-            <label for="txt_password" class="col-sm-4 control-label">Mật khẩu</label>
+            <%= f.label :password, class: "col-sm-4 control-label" %>
+              <% if @minimum_password_length %>
+              <em class="col-sm-8 col-md-8">(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
             <div class="col-sm-8 col-md-8">
-              <input type="password" name="password" class="form-control" id="password" placeholder="Mật khẩu ...">
+              <%= f.password_field :password, class: "form-control", placeholder: "Mật khẩu ...", autocomplete: "off" %>
               <span class="help-block"></span>
             </div>
           </div>
           <div class="form-group">
-            <label for="txt_password2" class="col-sm-4 control-label">Xác nhận mật khẩu</label>
+            <%= f.label :password_confirmation, class: "col-sm-4 control-label" %>
             <div class="col-sm-8 col-md-8">
-              <input type="password" name="repassword" class="form-control" id="password_confirmation" placeholder="Xác nhận mật khẩu ...">
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Xác nhận mật khẩu ...", autocomplete: "off" %>
               <span class="help-block"></span>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8">
-              <button type="submit" class="btn btn-auth-submit">Đăng ký tài khoản</button>
+              <%= f.submit "Sign up", class: "btn btn-auth-submit" %>
             </div>
           </div>
-        </form>
+        <% end %>
         <div class="clearfix"></div>
         <div class="btn-social-group">
           <a href="http://phongtot.vn/social/facebook" class="btn btn-md btn-social btn-facebook"> <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook </a>

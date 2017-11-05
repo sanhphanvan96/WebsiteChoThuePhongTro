@@ -4,7 +4,7 @@
       <div class="col-md-12 room-main-content">
         <div class="pt-breadcrumb">
           <ol class="breadcrumb">
-            <li><a href="http://phongtot.vn">Trang chủ</a></li>
+            <li><a href="#">Trang chủ</a></li>
           </ol>
         </div><div class="col-md-12 no-padding-vertical login-page-label">
         <div class="room-list-category">
@@ -16,27 +16,29 @@
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2 login-page">
-        <form method="POST" action="http://phongtot.vn/dang-nhap" class="">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
-            <label for="email" class="col-sm-3 col-md-3 no-padding-vertical control-label">Email</label>
+            <%= f.label :email, class: "col-sm-3 col-md-3 no-padding-vertical control-label" %>
             <div class="col-sm-8 col-md-8">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Địa chỉ email ..." value="">
+              <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "Địa chỉ email ..." %>
             </div>
           </div>
           <div class="form-group">
-            <label for="password" class="col-sm-3 col-md-3 no-padding-vertical control-label">Mật khẩu</label>
+            <%= f.label :password, class: "col-sm-3 col-md-3 no-padding-vertical control-label" %>
             <div class="col-sm-8 col-md-8">
-              <input type="password" name="password" class="form-control" id="password" placeholder="Mật khẩu ...">
+              <%= f.password_field :password, class: "form-control", placeholder: "Mật khẩu ...", autocomplete: "off" %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 col-md-3 control-label"></label>
             <div class="col-sm-8 col-md-8">
-              <div class="pull-left"><input type="checkbox" name="remember"> Ghi nhớ đăng nhập</div>
-              <div class="pull-right"><button type="submit" class="btn btn-auth-submit">Đăng nhập</button></div>
+            <% if devise_mapping.rememberable? -%>
+              <div class="pull-left"><%= f.check_box :remember_me %><%= f.label :remember_me %></div>
+            <% end -%>
+              <div class="pull-right"><%= f.submit "Log in", class: "btn btn-auth-submit" %></div>
             </div>
           </div>
-        </form>
+        <% end %>
         <div class="clearfix"></div>
         <div class="btn-social-group">
           <a href="http://phongtot.vn/social/facebook" class="btn btn-md btn-social btn-facebook"> <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook </a>
