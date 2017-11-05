@@ -10,8 +10,20 @@
             <%= image_tag "avatar", class: "img-responsive" %>
           </div>
           <div class="header-top-user">
-            <div class="user-login"><a class="load_modal_login" href="#tab_auth_login" data-toggle="modal" data-target="#modal_auth">Đăng nhập</a></div>
-            <div class="user-register load_modal_register"><a href="javascript: void(0);" data-toggle="modal" data-target="#modal_auth">Tạo tài khoản</a></div>
+            <% if user_signed_in? %>
+              <div class="user-name"><a href="#">Phan Van Sanh</a></div>
+              <div class="dropdown user-info">
+                <a href="javascript: void(0);" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài khoản <b class="caret"></b></a>
+                <ul class="dropdown-menu dropdown-menu-right menu-user-info" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Trang cá nhân", edit_user_registration_path %></li>
+                  <li><a href="#">Tin đã đăng</a></li>
+                  <li><%= link_to "Đăng xuất", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+              </div>
+            <% else %>  
+              <div class="user-login"><a class="load_modal_login" href="#tab_auth_login" data-toggle="modal" data-target="#modal_auth">Đăng nhập</a></div>
+              <div class="user-register load_modal_register"><a href="javascript: void(0);" data-toggle="modal" data-target="#modal_auth">Tạo tài khoản</a></div>
+            <% end %>
           </div>
         </div>
         <div class="pull-right">
