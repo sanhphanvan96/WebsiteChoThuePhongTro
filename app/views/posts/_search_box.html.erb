@@ -1,0 +1,59 @@
+<div class="slider hidden-xs hidden-sm">
+  <%= image_tag "slider-bg.png", class: "img-responsive", alt: ""%>
+  <div class="pt_container">
+    <div class="slider-title">
+      <h1>Chính chủ, Miễn phí, Tiện lợi</h1>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 search-bar">
+      <form class="form" action="#" method="GET">
+        <div class="group-arena pull-left">
+          <div class="group-title">Chọn khu vực</div>
+          <input class="ip-room-where" type="text" name="k" placeholder="Bạn muốn tìm phòng ở đâu ?">
+        </div>
+
+        <div class="group-type pull-left">
+          <div class="group-title">Chọn loại phòng</div>
+          <div class="radio radio-danger">
+            <ul class="type-list-item">
+              <li>
+                <input type="radio" name="type[]" id="1" value="1">
+                <label for="1">Phòng trọ, nhà trọ</label>
+              </li>
+              <li>
+                <input type="radio" name="type[]" id="2" value="2">
+                <label for="2">Nhà nguyên căn</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="group-price pull-left">
+          <div class="group-title">Chọn khoảng giá</div>
+          <p style="color: red"> Maybe range-slide is here</p>
+          <div class="extra-controls">
+            <div class="form-group input-price">
+              <div class="price-from">
+                <div class="input-group">
+                  <input type="text" name="price_from" maxlength="4" value="0" class="inp js-from form-control">
+                  <span class="input-group-addon">Triệu</span>
+                </div>
+              </div>
+              <span class="input-price-title">Đến</span>
+              <div class="price-to">
+                <div class="input-group">
+                  <input type="text" name="price_to" maxlength="4" value="50" class="inp js-to form-control">
+                  <span class="input-group-addon">Triệu</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="group-btn-submit">
+          <button type="submit" class="btn btn-slide-search"><span class="fa fa-search"></span>Tìm kiếm</button>
+          <button type="submit" class="btn btn-advance-search">Tìm Nâng Cao</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
