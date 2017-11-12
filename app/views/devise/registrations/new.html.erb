@@ -1,23 +1,24 @@
-<div class="row">
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-12 room-main-content">
-        <div class="pt-breadcrumb">
-          <ol class="breadcrumb">
-            <li><a href="#">Trang chủ</a></li>
-          </ol>
-        </div><div class="col-md-12 no-padding-vertical login-page-label">
-        <div class="room-list-category">
-          <div class="pull-left">
-            <a href="javascript:void(0);"><h3><span>Đăng ký</span> tài khoản <i class="fa fa-angle-right"></i></h3></a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12 room-main-content">
+          <div class="pt-breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="#">Trang chủ</a></li>
+            </ol>
+          </div><div class="col-md-12 no-padding-vertical login-page-label">
+          <div class="room-list-category">
+            <div class="pull-left">
+              <a href="javascript:void(0);"><h3><span>Đăng ký</span> tài khoản <i class="fa fa-angle-right"></i></h3></a>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
           </div>
-          <div class="clearfix"></div>
-          <hr>
         </div>
-      </div>
-      <div class="col-md-8 col-md-offset-2 login-page">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal") do |f| %>
-        <%= devise_error_messages! %>
+        <div class="col-md-8 col-md-offset-2 login-page">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal") do |f| %>
+          <%= devise_error_messages! %>
           <div class="form-group">
           </div>
           <div class="form-group">
@@ -36,9 +37,9 @@
           </div>
           <div class="form-group">
             <%= f.label :password, class: "col-sm-4 control-label" %>
-              <% if @minimum_password_length %>
-              <em class="col-sm-8 col-md-8">(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %>
+            <% if @minimum_password_length %>
+            <em class="col-sm-8 col-md-8">(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
             <div class="col-sm-8 col-md-8">
               <%= f.password_field :password, class: "form-control", placeholder: "Mật khẩu ...", autocomplete: "off" %>
               <span class="help-block"></span>
@@ -56,11 +57,12 @@
               <%= f.submit "Sign up", class: "btn btn-auth-submit" %>
             </div>
           </div>
-        <% end %>
-        <div class="clearfix"></div>
-        <div class="btn-social-group">
-          <a href="http://phongtot.vn/social/facebook" class="btn btn-md btn-social btn-facebook"> <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook </a>
-          <a href="http://phongtot.vn/social/google" class="btn btn-md btn-social btn-google-plus"> <i class="fa fa-google-plus"></i> Đăng nhập bằng Google </a>
+          <% end %>
+          <div class="clearfix"></div>
+          <div class="btn-social-group">
+            <a href="http://phongtot.vn/social/facebook" class="btn btn-md btn-social btn-facebook"> <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook </a>
+            <a href="http://phongtot.vn/social/google" class="btn btn-md btn-social btn-google-plus"> <i class="fa fa-google-plus"></i> Đăng nhập bằng Google </a>
+          </div>
         </div>
       </div>
     </div>
