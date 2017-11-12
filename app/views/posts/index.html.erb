@@ -1,26 +1,66 @@
-<p id="notice"><%= notice %></p>
+<%= render "posts/search_box" %>
+<div class="container">
+  <div>
+    <div class="row">
+      <div class="col-md-12 room-main-content">
+        <div class="tabbable-panel">
+          <div class="tabbable-line">
+            <div class="menu-tab">
+              <div class="menu-tab-title"><a href=""><span>Tin</span> Mới nhất <i class="fa fa-angle-right"></i></a></div>
+              <div class="menu-tab-title-right">
+                <ul class="nav nav-tabs ">
+                  <li class="active">
+                    <a href="#tab_type_1" data-toggle="tab">Tất cả</a>
+                  </li>
+                  <li class="">
+                    <a href="#tab_type_2" data-toggle="tab">Phòng trọ, nhà trọ</a>
+                  </li>
+                  <li class="">
+                    <a href="#tab_type_3" data-toggle="tab">Nhà nguyên căn</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_type_1">
+                <div class="thumbnail-list">
+                  <div class="row block-item">
+                  <% 9.times do %>
+                    <!-- render items here -->
+                    <%= render "posts/post"%>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>                        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h1>Posts</h1>
 
-<h1>Posts</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Acreage</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>Phone contact</th>
+        <th>Status</th>
+        <th>Post category</th>
+        <th>Toilet type</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Acreage</th>
-      <th>Price</th>
-      <th>Address</th>
-      <th>Phone contact</th>
-      <th>Status</th>
-      <th>Post category</th>
-      <th>Toilet type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
+    <tbody>
+      <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
         <td><%= post.description %></td>
@@ -36,10 +76,12 @@
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 
+  <br>
+
+  <%= link_to 'New Post', new_post_path %>
+</div>
 <br>
-
-<%= link_to 'New Post', new_post_path %>
