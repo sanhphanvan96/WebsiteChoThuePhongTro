@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <%= render "layouts/shim" %>
-  </head>
-  <body>
-    <%= render "layouts/header" %>
-    <%= render "layouts/top_navigation" %>
-    <div>
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-    </div>
-    <div>
-      <%= yield %>
-    </div>
-    <div class="footer">
-      <%= render "layouts/footer" %>
-    </div>
-  </body>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <%= render "layouts/shim" %>
+</head>
+<body>
+  <%= render "layouts/header" %>
+  <%= render "layouts/top_navigation" %>
+  <div>
+    <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= yield %>
+  </div>
+  <div class="footer">
+    <%= render "layouts/footer" %>
+  </div>
+</body>
+
 </html>
