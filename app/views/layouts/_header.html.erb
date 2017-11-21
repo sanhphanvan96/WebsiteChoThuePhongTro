@@ -28,7 +28,7 @@
         </div>
         <div class="pull-right">
           <% if user_signed_in? %>
-            <a class="btn btn-submit-room load_modal_login" href="javascript: void(0);">Đăng tin miễn phí</a>
+            <%= link_to "Đăng tin miễn phí", new_post_path, class: "btn btn-submit-room load_modal_login" %>
           <% else %>
             <a class="btn btn-submit-room load_modal_login" data-toggle="modal" data-target="#modal_auth" href="javascript: void(0);">Đăng tin miễn phí</a>
           <% end %>
