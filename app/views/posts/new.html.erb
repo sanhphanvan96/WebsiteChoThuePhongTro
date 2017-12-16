@@ -1,6 +1,6 @@
   <div class="container">
     <div class="row">
-      <form id="form-validation" class="form" method="POST" action="#" enctype="multipart/form-data" novalidate="novalidate">
+      <form id="form-validation" class="form" method="POST" action="<%= posts_path %>" enctype="multipart/form-data" novalidate="novalidate">
         <div class="row">
           <div class="col-md-12 submit-room-breadcrumb">
             <div class="pt-breadcrumb">
@@ -8,7 +8,8 @@
                 <li><a href="#">Trang chủ</a></li>
                 <li class="active">Đăng tin</li>
               </ol>
-            </div>        </div>
+            </div>        
+          </div>
           </div>
           <div class="col-md-2 no-padding-vertical submit-room-main-content">
             <div class="submit-list-type">
@@ -18,12 +19,15 @@
               <div class="checkbox checkbox-success">
                 <ul>
                   <li>
-                    <input type="radio" name="type_id" id="radio_type[1]" value="1">
-                    <label for="radio_type[1]">Phòng trọ, nhà trọ</label>
+                    <%= radio_button_tag(:post_category_id, "1") %>
+                    <%= label_tag(:post_category_id_1, "Phòng trọ, nhà trọ") %>
+
+                    <!-- <label for="post_category_id_phongtro">Phòng trọ, nhà trọ</label> -->
                   </li>
                   <li>
-                    <input type="radio" name="type_id" id="radio_type[2]" value="2">
-                    <label for="radio_type[2]">Nhà nguyên căn</label>
+                    <%= radio_button_tag(:post_category_id, "2") %>
+                    <%= label_tag(:post_category_id_2, "Nhà nguyên căn") %>
+                    <!-- <label for="post_category_id_nguyencan">Nhà nguyên căn</label> -->
                   </li>
                 </ul>
               </div>
@@ -55,14 +59,16 @@
                 <div class="form-group">
                   <div class="control-label">Tiêu đề</div>
                   <div>
-                    <input type="text" id="title" name="title" class="form-control" value="">
+                    <!-- <input type="text" id="title" name="title" class="form-control" value=""> -->
+                    <%= text_field_tag :title, nil, id: :post_title, class: "form-control" %>
                     <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="control-label">Số điện thoại</div>
                   <div>
-                    <input type="text" name="phone" class="form-control" value="">
+                    <!-- <input type="text" name="phone" class="form-control" value=""> -->
+                    <%= text_field_tag :phone_contact, nil, id: :post_phone_contact, class: "form-control"%>
                     <span class="help-block"></span>
                   </div>
                 </div>
@@ -71,7 +77,8 @@
                     <div>
                       <div class="control-label">Giá</div>
                       <div class="input-group">
-                        <input type="text" name="price" class="form-control money-input" data-thousands="," data-decimal="." data-precision="0">
+                        <!-- <input type="text" name="price" class="form-control money-input" data-thousands="," data-decimal="." data-precision="0"> -->
+                        <%= text_field_tag :price, nil, id: :post_price, class: "form-control money-input", data: { thousands: ",", decimal: ".", precision: "0"} %>
                         <span class="input-group-addon">đ/tháng</span>
                       </div>
                       <span class="help-block"></span>
@@ -83,7 +90,9 @@
                     <div>
                       <div class="control-label">Diện tích</div>
                       <div class="input-group">
-                        <input type="text" name="acreage" value="" class="form-control" placeholder="nhập số, viết liền">
+                        <!-- <input type="text" name="acreage" value="" class="form-control" placeholder="nhập số, viết liền"> -->
+                        <%= text_field_tag :acreage, nil, id: :post_acreage,
+                          class: "form-control", placeholder: "nhập số, viết liền" %>
                         <span class="input-group-addon">M<sup>2</sup></span>
                         <span class="help-block"></span>
                       </div>
@@ -98,7 +107,8 @@
                     <div class="form-group">
                       <div class="control-label">Địa chỉ cụ thể</div>
                       <div>
-                        <input type="text" name="detail" class="form-control address_input" value="">
+                        <!-- <input type="text" name="detail" class="form-control address_input" value=""> -->
+                        <%= text_field_tag :address, nil, id: :post_address, class: "form-control address_input" %>
                         <span class="help-block"></span>
                       </div>
                     </div>
@@ -109,7 +119,8 @@
                       <div id="image-group">
                         <label for="summary">
                           <div class="control-label">Ảnh chi tiết của phòng </div>
-                          <input type="file" name="attachments">
+                          <!-- <input type="file" name="attachments"> -->
+                          <%= file_field_tag "image", id: :post_image %>
                         </label>
                         <div class="clearfix"></div>
                       </div>
@@ -147,10 +158,10 @@
                           <div class="control-label">Vệ sinh</div>
                           <div>
                             <select name="wc" class="form-control" size="1">
-                              <option value="Chưa xác định">Chọn..</option>
-                              <option value="Khép kín">Khép kín</option>
-                              <option value="Chung">Chung</option>
-                              <option value="Chưa xác định">Chưa xác định</option>
+                              <option value="">Chọn..</option>
+                              <option value="1">Chung</option>
+                              <option value="2">Khép kín</option>
+                              <option value="">Chưa xác định</option>
                             </select>
                             <span class="help-block"></span>
                           </div>
@@ -198,55 +209,7 @@
                     <div class="water water_set"></div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="submit-info-title">Tiện ích của phòng</div>
-                  <div class="form-group room-option">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="dexe" value="Chỗ để xe">
-                          <label for="dexe"> Chỗ để xe </label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="sanphoi" value="Sân phơi">
-                          <label for="sanphoi"> Sân phơi </label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="internet" value="Internet">
-                          <label for="internet"> Internet </label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="dieuhoa" value="Điều hòa">
-                          <label for="dieuhoa"> aĐiều hòa </label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="maygiat" value="Máy giặt">
-                          <label for="maygiat"> Máy giặt </label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="tulanh" value="Truyền hình cáp">
-                          <label for="tulanh"> TH cáp </label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="checkbox checkbox-success">
-                          <input type="checkbox" name="convenient[]" id="tivi" value="Tivi">
-                          <label for="tivi"> Tivi </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
               </div>
               
               <div class="clearfix"></div>
@@ -258,7 +221,7 @@
 
             </div>
             <div class="col-md-12 submit-btn-room">
-              <a id="submit_form" class="btn btn-send-room" href="javascript:void(0);"><span class="fa fa-send"></span>Đăng tin</a>
+              <button id="submit_form" class="btn btn-send-room"><span class="fa fa-send"></span>Đăng tin</button>
             </div>
           </div>
         </div>
@@ -295,10 +258,10 @@
                     <div class="control-label">Vệ sinh</div>
                     <div>
                       <select name="wc" class="form-control" size="1">
-                        <option value="Chưa xác định">Chọn..</option>
-                        <option value="Khép kín">Khép kín</option>
-                        <option value="Chung">Chung</option>
-                        <option value="Chưa xác định">Chưa xác định</option>
+                        <option value="">Chọn..</option>
+                        <option value="1">Chung</option>
+                        <option value="2">Khép kín</option>
+                        <option value="">Chưa xác định</option>
                       </select>
                       <span class="help-block"></span>
                     </div>
@@ -1054,7 +1017,7 @@
             }
           });
       // setTimeout(function(){$('[name="type"]').change();}, 200);
-      $('body').on('change', '[name="type_id"]', function(e){
+      $('body').on('change', '[name="post_category_id"]', function(e){
         e.preventDefault;
         $('#step-3').fadeIn(700);
         $('#additional-row').fadeOut(300);

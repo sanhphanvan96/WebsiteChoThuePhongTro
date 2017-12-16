@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    binding.pry
 
     respond_to do |format|
       if @post.save
@@ -70,6 +71,11 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :image, :acreage, :price, :address, :phone_contact, :status, :post_category_id, :toilet_type_id)
+      params.merge!(user_id: current_user.id, toilet_type_id: "1", image: "image")
+      new_params = params.permit(:user_id, :title, :description, :image, :acreage, :price, :address,
+        :phone_contact, :post_category_id, :toilet_type_id)
+      # binding.pry
+      puts "new_params", new_params
+      new_params.permit! 
     end
 end
