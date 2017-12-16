@@ -5,6 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Gem for upload mutil attachments
+gem "carrierwave", "~> 1.0"
+gem "file_validators"
+gem "mini_magick"
+
 gem "bcrypt", "~> 3.1.7"
 gem "bootstrap-sass", "3.3.7"
 gem "carrierwave", "~> 1.0"

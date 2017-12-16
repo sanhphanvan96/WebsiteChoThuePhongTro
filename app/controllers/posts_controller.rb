@@ -71,7 +71,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.merge!(user_id: current_user.id, toilet_type_id: "1", image: "image")
+      params.merge!(user_id: current_user.id, toilet_type_id: "1")
       new_params = params.permit(:user_id, :title, :description, :image, :acreage, :price, :address,
         :phone_contact, :post_category_id, :toilet_type_id)
       # binding.pry
