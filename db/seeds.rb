@@ -22,13 +22,13 @@ puts "Created user: #{user.email}, password: 123456"
 post_category = PostCategory.create!([
   {
     id: 1,
-    name: "Nhà Nguyên Căn",
-    description: "Nhà Nguyên Căn"
+    name: "Phòng trọ",
+    description: "Phòng trọ"
   },
   {
     id: 2,
-    name: "Phòng trọ",
-    description: "Phòng trọ"
+    name: "Nhà Nguyên Căn",
+    description: "Nhà Nguyên Căn"
   }])
 puts "Created PostCategory: #{post_category[0].id}, #{post_category[0].name}"
 puts "Created PostCategory: #{post_category[1].id}, #{post_category[1].name}"
