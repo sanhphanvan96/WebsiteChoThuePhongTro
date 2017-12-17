@@ -11,9 +11,15 @@ User.create!(
   password: "123456",
   password_confirmation: "123456")
 
-PostCategory.create!(
-  name: "Nhà Nguyên Căn",
-  description: "Nhà Nguyên Căn")
+PostCategory.create!([
+  {
+    name: "Nhà Nguyên Căn",
+    description: "Nhà Nguyên Căn"
+  },
+  {
+    name: "Phòng trọ",
+    description: "Phòng trọ"
+  }])
 
 ToiletType.create!([
   {
@@ -21,4 +27,4 @@ ToiletType.create!([
   },
   {
     name: "Khép kín"
-  }])}
+  }])
