@@ -15,6 +15,7 @@
               <div class="dropdown user-info">
                 <a href="javascript: void(0);" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài khoản <b class="caret"></b></a>
                 <ul class="dropdown-menu dropdown-menu-right menu-user-info" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Trang quản trị", rails_admin_path %></li>
                   <li><%= link_to "Trang cá nhân", edit_user_registration_path %></li>
                   <li><a href="#">Tin đã đăng</a></li>
                   <li><%= link_to "Đăng xuất", destroy_user_session_path, method: :delete %></li>
