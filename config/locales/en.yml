@@ -60,3 +60,15 @@ en:
         subject: 'Hướng dẫn đặt lại mật khẩu'
       unlock_instructions:
         subject: 'Hướng dẫn bỏ khóa tài khoản'
+  activerecord:
+    attributes:
+      user:
+        email: "Địa chỉ email"
+        name: "Tên"
+      post:
+        title: "Tiêu đề"
+        image: "Hình ảnh"
+        acreage: "Diện tích"
+        price: "Giá"
+        address: "Địa chỉ"
+        phone_contact: "Số điện thoại"

@@ -1,6 +1,7 @@
   <div class="container">
     <div class="row">
       <form id="form-validation" class="form" method="POST" action="<%= posts_path %>" enctype="multipart/form-data" novalidate="novalidate">
+
         <div class="row">
           <div class="col-md-12 submit-room-breadcrumb">
             <div class="pt-breadcrumb">
@@ -11,6 +12,16 @@
             </div>        
           </div>
           </div>
+                <% if @post.errors.any? %>
+                  <div id="error_explanation">
+                    <h4><%= @post.errors.count %> lỗi:</h4>
+                    <ul>
+                    <% @post.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
           <div class="col-md-2 no-padding-vertical submit-room-main-content">
             <div class="submit-list-type">
               <div class="list-type-title">
