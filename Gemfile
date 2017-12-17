@@ -12,27 +12,24 @@ gem "mini_magick"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootstrap-sass", "3.3.7"
-gem "carrierwave", "~> 1.0"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "faker", "1.6.6"
-gem "file_validators"
 gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
-gem "mini_magick"
 gem "mysql2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.4"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem 'will_paginate'
+gem "will_paginate"
 
-gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', github: 'sferik/rails_admin'
-gem 'rails_admin_rollincode', '~> 1.0'
+gem "remotipart", github: "mshibuya/remotipart"
+gem "rails_admin", github: "sferik/rails_admin"
+gem "rails_admin_rollincode", "~> 1.0"
 
 
 group :development, :test do
