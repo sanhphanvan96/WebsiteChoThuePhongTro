@@ -1,54 +1,107 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+   <div class="col-md-12 room-main-content">
+      <div class="pt-breadcrumb">
+         <ol class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Phòng trọ, nhà trọ</a></li>
+            <li class="active"><%= @post.title %></li>
+         </ol>
+      </div>
+      <div class="room-detail">
+         <div class="title">
+            <a href="javascript: void(0);">
+               <h1><%= @post.title %></h1>
+            </a>
+         </div>
+        <div class="pull-left gplus">
+            <span>
+              <div>
+                <%= link_to 'Edit', edit_post_path(@post) , class: "btn btn-save-room clearfix"%>
+                <%= link_to 'Back', posts_path , class: "btn btn-save-room clearfix"%>
+              </div>
+            </span>
+        </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
-</p>
-
-<p>
-  <strong>Acreage:</strong>
-  <%= @post.acreage %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @post.price %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @post.address %>
-</p>
-
-<p>
-  <strong>Phone contact:</strong>
-  <%= @post.phone_contact %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @post.status %>
-</p>
-
-<p>
-  <strong>Post category:</strong>
-  <%= @post.post_category %>
-</p>
-
-<p>
-  <strong>Toilet type:</strong>
-  <%= @post.toilet_type %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+         <div class="social">
+            <div class="pull-right">
+               <a href="javascript:void();"><span>Lượt xem : </span>1601</a>
+            </div>
+         </div>
+         <div class="clearfix"></div>
+         <!-- Nhà trọ, Phòng trọ -->
+         <div class="main-info">
+            <div class="row">
+               <div class="col-md-8 left-info no-padding-right">
+                  <div class="address">
+                     <span class="btn info-label">Địa chỉ</span>
+                     <a class="" href="#"><%= @post.address %></a>
+                  </div>
+                  <div class="size">
+                     <span class="btn info-label">Diện tích</span>
+                     <a href="" class="btn info-data"><%= @post.acreage %>m<sup>2</sup></a>
+                     <span class="btn info-label">Loại phòng</span>
+                     <a href=""><%= @post.post_category.name %></a>
+                  </div>
+                  <div class="tang">
+                     <span class="btn info-label">Tầng</span>
+                     <a href="" class="btn info-data"> Chưa xác định </a>
+                  </div>
+                  <div class="vs">
+                     <span class="btn info-label">Vệ sinh</span>
+                     <a href="" class="btn info-data"><%= @post.toilet_type.name %></a>
+                     <span class="btn info-label">Số người ở</span>
+                     <a href="">3</a>
+                  </div>
+                  <div class="type">
+                     <span class="btn info-label">Tiện ích</span>
+                     <a href="">Chỗ để xe</a>
+                     , <a href="">Sân phơi</a>
+                     , <a href="">Internet</a>
+                     , <a href="">Bình nóng lạnh</a>
+                     , <a href="">Truyền hình cáp</a>
+                  </div>
+               </div>
+               <div class="col-md-4 info-contact no-padding-left">
+                  <div class="contact-label">
+                     <a href=""><span class="fa fa-mobile-phone"></span>Thông tin liên hệ</a>
+                  </div>
+                  <div class="chr">
+                     <hr>
+                  </div>
+                  <div class="info-price">
+                     <a href=""><span class="fa fa-unlock-alt"></span>3,000,000 Đ/tháng</a>
+                  </div>
+                  <div class="info-boss">
+                     <a href=""><span class="fa fa-user"></span><%= @post.user.name %></a>
+                  </div>
+                  <div class="info-phone">
+                     <a href=""><span class="fa fa-mobile-phone"></span><%= @post.phone_contact %></a>
+                  </div>
+                  <div class="info-feedback">
+                     <a class="btn btn-report-room clearfix">Phản hồi tình trạng</a>
+                     <a class="btn btn-save-room clearfix">Đã duyệt</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="room-detail-img">
+            <div class="row">
+               <div class="col-md-12">
+                  <div id="sync1" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                     <div class="owl-wrapper-outer">
+                        <div class="owl-wrapper" style="width: 1790px; left: 0px; display: block; transition: all 1000ms ease; transform: translate3d(0px, 0px, 0px);">
+                           <div class="owl-item" style="width: 895px;">
+                              <div class="item">
+                              <%= image_tag(@post.image.url, alt: "Image", class: "img-responsive") if @post.image? %>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<br>

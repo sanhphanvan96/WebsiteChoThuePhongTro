@@ -25,10 +25,8 @@
               <div class="tab-pane active" id="tab_type_1">
                 <div class="thumbnail-list">
                   <div class="row block-item">
-                  <% 9.times do %>
                     <!-- render items here -->
-                    <%= render "posts/post"%>
-                  <% end %>
+                    <%= render @posts %>
                   </div>
                 </div>
               </div>
@@ -46,15 +44,8 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Acreage</th>
-        <th>Price</th>
         <th>Address</th>
-        <th>Phone contact</th>
-        <th>Status</th>
         <th>Post category</th>
-        <th>Toilet type</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -63,15 +54,8 @@
       <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.image %></td>
-        <td><%= post.acreage %></td>
-        <td><%= post.price %></td>
         <td><%= post.address %></td>
-        <td><%= post.phone_contact %></td>
-        <td><%= post.status %></td>
-        <td><%= post.post_category %></td>
-        <td><%= post.toilet_type %></td>
+        <td><%= post.post_category.name %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
