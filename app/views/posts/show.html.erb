@@ -13,6 +13,7 @@
                <h1><%= @post.title %></h1>
             </a>
          </div>
+         <% if @post.user == current_user || current_user.is_admin? %>
         <div class="pull-left gplus">
             <span>
               <div>
@@ -21,7 +22,7 @@
               </div>
             </span>
         </div>
-
+        <% end %>
          <div class="social">
             <div class="pull-right">
                <a href="javascript:void();"><span>Lượt xem : </span>1601</a>

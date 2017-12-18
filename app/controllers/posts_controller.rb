@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :permit_user, only: [:edit, :destroy, :update]
 
   # GET /posts
   # GET /posts.json
@@ -43,7 +44,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.update(params.require(:post).permit(:user_id, :title, :description, :image, :acreage, :price, :address,
+        :phone_contact, :post_category_id, :toilet_type_id))
         format.html { redirect_to @post, notice: 'Đã chỉnh sửa bài đăng thành công.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -74,8 +76,15 @@ class PostsController < ApplicationController
       params.merge!(user_id: current_user.id, toilet_type_id: "1")
       new_params = params.permit(:user_id, :title, :description, :image, :acreage, :price, :address,
         :phone_contact, :post_category_id, :toilet_type_id)
-      # binding.pry
       puts "new_params", new_params
       new_params.permit! 
+    end
+
+    # Check is right user or is admin
+    def permit_user
+      unless @post.user == current_user || current_user.is_admin?
+        flash[:danger] = "Bạn không thể chỉnh sửa bài đăng này."
+        redirect_to @post
+      end
     end
 end
