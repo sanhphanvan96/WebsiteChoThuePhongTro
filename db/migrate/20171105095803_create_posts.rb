@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
     create_table :posts do |t|
       t.string :title, null: false
       t.text :description
-      t.json :image, null: false
+      t.text :image, null: false
       t.float :acreage
       t.float :price, null: false
       t.string :address, null: false
