@@ -1,7 +1,46 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Deleting database ..."
+User.all.map(&:destroy)
+PostCategory.all.map(&:destroy)
+ToiletType.all.map(&:destroy)
+puts "Deleted database"
+
+admin = User.create!(
+  name: "Tôi là Admin",
+  email: "admin@admin.com",
+  password: "123456",
+  password_confirmation: "123456",
+  is_admin: true)
+puts "Created admin: #{admin.email}, password: 123456"
+
+user = User.create!(
+  name: "Tôi là User",
+  email: "user@user.com",
+  password: "123456",
+  password_confirmation: "123456")
+puts "Created user: #{user.email}, password: 123456"
+
+post_category = PostCategory.create!([
+  {
+    id: 1,
+    name: "Phòng trọ",
+    description: "Phòng trọ"
+  },
+  {
+    id: 2,
+    name: "Nhà Nguyên Căn",
+    description: "Nhà Nguyên Căn"
+  }])
+puts "Created PostCategory: #{post_category[0].id}, #{post_category[0].name}"
+puts "Created PostCategory: #{post_category[1].id}, #{post_category[1].name}"
+
+toilet_type = ToiletType.create!([
+  {
+    id: 1,
+    name: "Chung"
+  },
+  {
+    id: 2,
+    name: "Khép kín"
+  }])
+puts "Created ToiletType: #{toilet_type[0].id}, #{toilet_type[0].name}"
+puts "Created ToiletType: #{toilet_type[1].id}, #{toilet_type[1].name}"

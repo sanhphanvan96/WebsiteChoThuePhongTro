@@ -125,7 +125,7 @@ body {font-family: 'Open Sans', Tahoma, Arial, sans-serif;}
 }
 
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-    margin-top:-3px;
+    margin-top:-1.5px;
     color: #33cc66;
 }
 
@@ -152,7 +152,7 @@ body {font-family: 'Open Sans', Tahoma, Arial, sans-serif;}
     font-weight: 600;
     text-transform: uppercase;
     color: #FFF;
-    padding: 10px 12px;
+    padding: 15px 12px;
 }
 
 .nav>li>i {
@@ -308,7 +308,7 @@ body {font-family: 'Open Sans', Tahoma, Arial, sans-serif;}
 .pt_container .search-bar {
     display: block;
     position: absolute;
-    bottom: 10px;
+    bottom: 70px;
     background: rgba(0,0,0,.6);
     padding-bottom: 42px;
     padding-top: 12px;

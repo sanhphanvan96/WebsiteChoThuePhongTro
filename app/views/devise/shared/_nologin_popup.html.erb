@@ -1,0 +1,40 @@
+<div class="modal fade" id="modal_auth" tabindex="-1" role="dialog" aria-labelledby="login_modal_label" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="row-fluid">
+        <div class="col-md-12">
+          <div class="modal_auth_wrap">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <ul class="nav nav-tabs no-margin">
+              <li id="li_login" class="active"><a href="#tab_auth_login" data-toggle="tab">ĐĂNG NHẬP</a></li>
+              <li id="li_register"><a href="#tab_auth_register" data-toggle="tab">ĐĂNG KÝ</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="tab_auth_login">
+                <%= render "devise/shared/login" %>
+              </div>
+              <div class="tab-pane fade" id="tab_auth_register">
+                <%= render "devise/shared/signup"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>                
+<script type="text/javascript">
+  $('body').on('click', '.load_modal_login', function(e){
+    $('#li_register').removeClass('active');
+    $('#li_login').addClass('active');
+    $('#tab_auth_register').removeClass('in active');
+    $('#tab_auth_login').addClass('in active');
+  });
+  $('body').on('click', '.load_modal_register', function(e){
+    $('#li_login').removeClass('active');
+    $('#li_register').addClass('active');
+    $('#tab_auth_login').removeClass('in active');
+    $('#tab_auth_register').addClass('in active');
+  });
+</script>

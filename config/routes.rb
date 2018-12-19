@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  root to: "static#home"
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
+  resources :posts
+  devise_for :users
+  root to: "posts#index"
+  # root to: "static#home"
 
-  get "static/home"
-  get "static/about"
+  get "users", to: redirect("home")
+  get "home", to: "static#home"
+  get "about", to: "static#about"
+  match "*path" => redirect("/"), via: [:get, :post]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
