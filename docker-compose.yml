@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  quanlyduan:
+    container_name: quanlyduan
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - db-data:/app/user/db/
+    ports:
+        - 8888:3000
+    command: ["rails", "server"]
+volumes:
+  db-data:
