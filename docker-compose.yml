@@ -9,7 +9,7 @@ services:
     volumes:
       - db-data:/app/user/db/
     ports:
-        - 8888:3000
+        - 80:3000
     command: ["rails", "server"]
 volumes:
   db-data:
