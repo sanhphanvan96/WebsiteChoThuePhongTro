@@ -9,6 +9,7 @@ source /app/.profile.d/ruby.sh
 # setup database
 rails db:create
 rails db:migrate
+rails db:seed
 
 set -e
 
